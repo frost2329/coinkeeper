@@ -20,22 +20,19 @@ public class Purchase implements BaseEntity<Long>{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "purchase_id")
     private Long id;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User user;
+    private Double amount;
+    @Column(name = "purchase_date")
+    private LocalDate purchaseDate;
+    private String description;
+    @Column(name = "created_at")
+    private Timestamp createdAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "purchase_type_id")
     private PurchaseType purchaseType;
 
-    private Double amount;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    @Column(name = "purchase_date")
-    private LocalDate purchaseDate;
-
-    private String description;
-
-    @Column(name = "created_at")
-    private Timestamp createdAt;
 }

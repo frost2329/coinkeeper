@@ -33,4 +33,8 @@ public class User implements BaseEntity<Long> {
     @OneToMany(mappedBy = "user")
     @Builder.Default
     private List<PurchaseType> purchaseTypes = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    @Builder.Default
+    private List<Purchase> purchases = new ArrayList<>();
 }
